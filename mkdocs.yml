@@ -1,0 +1,6 @@
+site_name: Torch.js - Documentation
+
+pages:
+    - index.md
+    - games.md
+    - sprites.md

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Sprites - Torch.js - Documentation</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="..">Torch.js - Documentation</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                    <li >
+                        <a href="../games/">Games</a>
+                    </li>
+                    <li class="active">
+                        <a href="./">Sprites</a>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../games/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#sprites">Sprites</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#general-usage">General Usage</a></li>
+            <li><a href="#public-methods">Public Methods</a></li>
+            <li><a href="#internal-methods">Internal Methods</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="sprites">Sprites</h1>
+<h2 id="overview">Overview</h2>
+<p>Sprites. Sprites are your things. If you think about adding something to your game,
+it's probably a Sprite. Sprites have events that can be listened to, collision detection,
+and even a hierchal system of children Sprites. Sprites is where stuff goes down.</p>
+<h2 id="general-usage">General Usage</h2>
+<p>Before we get down to the nitty-gritty of documenting everything about the sprite,
+lets take a look at how to use them.</p>
+<p>Sprites can be used as-is, like so:</p>
+<pre><code class="coffeescript">mySprite = new Torch.Sprite(game, 0, 0)
+</code></pre>
+
+<p><code>game</code> being an instance of <code>Torch.Game</code>. See <a href="../games/">Games</a></p>
+<p>Or they can by inherited from:</p>
+<pre><code class="coffeescript">class MyCustomSprite extends Torch.Sprite
+    constructor: (game, x, y)-&gt;
+        @InitSprite(game, x, y)
+
+    Update: -&gt;
+        super()
+        # do stuff..
+</code></pre>
+
+<p>When inherting Sprite, make sure you call <code>@InitSprite</code> in the constructor
+Also, make sure <code>@InitSprite</code> is always the first call in the constructor and
+that <code>super</code> is the first call in any overridden method.</p>
+<h2 id="public-methods">Public Methods</h2>
+<h3 id="constructorgame-x-y">constructor(game, x, y)</h3>
+<p><code>game</code> Torch.Game, the game that the sprite will be added to</p>
+<p><code>x</code> Number, the initial x position of the sprite</p>
+<p><code>y</code> Number, the initial y position of the sprite</p>
+<p>Returns:
+<code>Torch.Sprite</code></p>
+<p>Initializes the Sprite</p>
+<h3 id="initspritegame-x-y">InitSprite(game, x, y)</h3>
+<p><code>game</code> Torch.Game, the game that the sprite will be added to</p>
+<p><code>x</code> Number, the initial x position of the sprite</p>
+<p><code>y</code> Number, the initial y position of the sprite</p>
+<p>Returns: <code>VOID</code></p>
+<p>Initializes the sprite. Should be called inside of any class' constructor that
+inherits from Sprite</p>
+<h3 id="fixedtog">Fixed(tog)</h3>
+<p><code>tog</code> Bool, false turns on fixing, true turns it off</p>
+<p>Returns: <code>self (Torch.Sprite)</code></p>
+<p>Makes the sprite independent of camera position. Any sprite that is 'fixed' would
+not move with the camera</p>
+<h3 id="updatesprite">UpdateSprite()</h3>
+<p>Returns: <code>VOID</code></p>
+<p>Runs the core update logic of the sprite. Should only be used in a javascript
+environment as a replacement for <code>super</code></p>
+<h3 id="update">Update()</h3>
+<p>Returns: <code>VOID</code></p>
+<p>Runs the core update logic and can be overridden if <code>super</code> or <code>@UpdateSprite</code> is
+called</p>
+<h2 id="internal-methods">Internal Methods</h2>
+<h3 id="updateevents">UpdateEvents()</h3>
+<p>Returns: <code>VOID</code></p>
+<p>Runs event logic against sprite and handles emitting of events.</p>
+<h3 id="updatebody">UpdateBody()</h3>
+<p>Returns: <code>VOID</code></p>
+<p>Runs simple built-in physics logic against the sprite.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

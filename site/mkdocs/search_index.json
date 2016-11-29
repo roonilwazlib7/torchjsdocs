@@ -1,0 +1,94 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Torch.js Documentation\n\n\nWhat is it?\n\n\nTorch.js, or 'Torch' is an honest attempt at creating an HTML5 game development\nframework. Are there better tools out there? Maybe, but I made this one.\n\n\nOverview\n\n\nTorch basically revolves around two main components: \nSprites\n and \nGames\n\n\nGames are the containers of a Torch game (weird, huh?) and Sprites are the things inside of it.\nSee the respective docs for more details.",
+            "title": "Home"
+        },
+        {
+            "location": "/#torchjs-documentation",
+            "text": "",
+            "title": "Torch.js Documentation"
+        },
+        {
+            "location": "/#what-is-it",
+            "text": "Torch.js, or 'Torch' is an honest attempt at creating an HTML5 game development\nframework. Are there better tools out there? Maybe, but I made this one.",
+            "title": "What is it?"
+        },
+        {
+            "location": "/#overview",
+            "text": "Torch basically revolves around two main components:  Sprites  and  Games  Games are the containers of a Torch game (weird, huh?) and Sprites are the things inside of it.\nSee the respective docs for more details.",
+            "title": "Overview"
+        },
+        {
+            "location": "/games/",
+            "text": "",
+            "title": "Games"
+        },
+        {
+            "location": "/sprites/",
+            "text": "Sprites\n\n\nOverview\n\n\nSprites. Sprites are your things. If you think about adding something to your game,\nit's probably a Sprite. Sprites have events that can be listened to, collision detection,\nand even a hierchal system of children Sprites. Sprites is where stuff goes down.\n\n\nGeneral Usage\n\n\nBefore we get down to the nitty-gritty of documenting everything about the sprite,\nlets take a look at how to use them.\n\n\nSprites can be used as-is, like so:\n\n\nmySprite = new Torch.Sprite(game, 0, 0)\n\n\n\n\ngame\n being an instance of \nTorch.Game\n. See \nGames\n\n\nOr they can by inherited from:\n\n\nclass MyCustomSprite extends Torch.Sprite\n    constructor: (game, x, y)->\n        @InitSprite(game, x, y)\n\n    Update: ->\n        super()\n        # do stuff..\n\n\n\n\nWhen inherting Sprite, make sure you call \n@InitSprite\n in the constructor\nAlso, make sure \n@InitSprite\n is always the first call in the constructor and\nthat \nsuper\n is the first call in any overridden method.\n\n\nPublic Methods\n\n\nconstructor(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns:\n\nTorch.Sprite\n\n\nInitializes the Sprite\n\n\nInitSprite(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns: \nVOID\n\n\nInitializes the sprite. Should be called inside of any class' constructor that\ninherits from Sprite\n\n\nFixed(tog)\n\n\ntog\n Bool, false turns on fixing, true turns it off\n\n\nReturns: \nself (Torch.Sprite)\n\n\nMakes the sprite independent of camera position. Any sprite that is 'fixed' would\nnot move with the camera\n\n\nUpdateSprite()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic of the sprite. Should only be used in a javascript\nenvironment as a replacement for \nsuper\n\n\nUpdate()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic and can be overridden if \nsuper\n or \n@UpdateSprite\n is\ncalled\n\n\nInternal Methods\n\n\nUpdateEvents()\n\n\nReturns: \nVOID\n\n\nRuns event logic against sprite and handles emitting of events.\n\n\nUpdateBody()\n\n\nReturns: \nVOID\n\n\nRuns simple built-in physics logic against the sprite.",
+            "title": "Sprites"
+        },
+        {
+            "location": "/sprites/#sprites",
+            "text": "",
+            "title": "Sprites"
+        },
+        {
+            "location": "/sprites/#overview",
+            "text": "Sprites. Sprites are your things. If you think about adding something to your game,\nit's probably a Sprite. Sprites have events that can be listened to, collision detection,\nand even a hierchal system of children Sprites. Sprites is where stuff goes down.",
+            "title": "Overview"
+        },
+        {
+            "location": "/sprites/#general-usage",
+            "text": "Before we get down to the nitty-gritty of documenting everything about the sprite,\nlets take a look at how to use them.  Sprites can be used as-is, like so:  mySprite = new Torch.Sprite(game, 0, 0)  game  being an instance of  Torch.Game . See  Games  Or they can by inherited from:  class MyCustomSprite extends Torch.Sprite\n    constructor: (game, x, y)->\n        @InitSprite(game, x, y)\n\n    Update: ->\n        super()\n        # do stuff..  When inherting Sprite, make sure you call  @InitSprite  in the constructor\nAlso, make sure  @InitSprite  is always the first call in the constructor and\nthat  super  is the first call in any overridden method.",
+            "title": "General Usage"
+        },
+        {
+            "location": "/sprites/#public-methods",
+            "text": "",
+            "title": "Public Methods"
+        },
+        {
+            "location": "/sprites/#constructorgame-x-y",
+            "text": "game  Torch.Game, the game that the sprite will be added to  x  Number, the initial x position of the sprite  y  Number, the initial y position of the sprite  Returns: Torch.Sprite  Initializes the Sprite",
+            "title": "constructor(game, x, y)"
+        },
+        {
+            "location": "/sprites/#initspritegame-x-y",
+            "text": "game  Torch.Game, the game that the sprite will be added to  x  Number, the initial x position of the sprite  y  Number, the initial y position of the sprite  Returns:  VOID  Initializes the sprite. Should be called inside of any class' constructor that\ninherits from Sprite",
+            "title": "InitSprite(game, x, y)"
+        },
+        {
+            "location": "/sprites/#fixedtog",
+            "text": "tog  Bool, false turns on fixing, true turns it off  Returns:  self (Torch.Sprite)  Makes the sprite independent of camera position. Any sprite that is 'fixed' would\nnot move with the camera",
+            "title": "Fixed(tog)"
+        },
+        {
+            "location": "/sprites/#updatesprite",
+            "text": "Returns:  VOID  Runs the core update logic of the sprite. Should only be used in a javascript\nenvironment as a replacement for  super",
+            "title": "UpdateSprite()"
+        },
+        {
+            "location": "/sprites/#update",
+            "text": "Returns:  VOID  Runs the core update logic and can be overridden if  super  or  @UpdateSprite  is\ncalled",
+            "title": "Update()"
+        },
+        {
+            "location": "/sprites/#internal-methods",
+            "text": "",
+            "title": "Internal Methods"
+        },
+        {
+            "location": "/sprites/#updateevents",
+            "text": "Returns:  VOID  Runs event logic against sprite and handles emitting of events.",
+            "title": "UpdateEvents()"
+        },
+        {
+            "location": "/sprites/#updatebody",
+            "text": "Returns:  VOID  Runs simple built-in physics logic against the sprite.",
+            "title": "UpdateBody()"
+        }
+    ]
+}

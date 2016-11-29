@@ -27,7 +27,7 @@
         },
         {
             "location": "/sprites/",
-            "text": "Sprites\n\n\nOverview\n\n\nSprites. Sprites are your things. If you think about adding something to your game,\nit's probably a Sprite. Sprites have events that can be listened to, collision detection,\nand even a hierchal system of children Sprites. Sprites is where stuff goes down.\n\n\nGeneral Usage\n\n\nBefore we get down to the nitty-gritty of documenting everything about the sprite,\nlets take a look at how to use them.\n\n\nSprites can be used as-is, like so:\n\n\nmySprite = new Torch.Sprite(game, 0, 0)\n\n\n\n\ngame\n being an instance of \nTorch.Game\n. See \nGames\n\n\nOr they can by inherited from:\n\n\nclass MyCustomSprite extends Torch.Sprite\n    constructor: (game, x, y)->\n        @InitSprite(game, x, y)\n\n    Update: ->\n        super()\n        # do stuff..\n\n\n\n\nWhen inherting Sprite, make sure you call \n@InitSprite\n in the constructor\nAlso, make sure \n@InitSprite\n is always the first call in the constructor and\nthat \nsuper\n is the first call in any overridden method.\n\n\nPublic Methods\n\n\nconstructor(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns:\n\nTorch.Sprite\n\n\nInitializes the Sprite\n\n\nInitSprite(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns: \nVOID\n\n\nInitializes the sprite. Should be called inside of any class' constructor that\ninherits from Sprite\n\n\nFixed(tog)\n\n\ntog\n Bool, false turns on fixing, true turns it off\n\n\nReturns: \nself (Torch.Sprite)\n\n\nMakes the sprite independent of camera position. Any sprite that is 'fixed' would\nnot move with the camera\n\n\nUpdateSprite()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic of the sprite. Should only be used in a javascript\nenvironment as a replacement for \nsuper\n\n\nUpdate()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic and can be overridden if \nsuper\n or \n@UpdateSprite\n is\ncalled\n\n\nInternal Methods\n\n\nUpdateEvents()\n\n\nReturns: \nVOID\n\n\nRuns event logic against sprite and handles emitting of events.\n\n\nUpdateBody()\n\n\nReturns: \nVOID\n\n\nRuns simple built-in physics logic against the sprite.",
+            "text": "Sprites\n\n\nOverview\n\n\nSprites. Sprites are your things. If you think about adding something to your game,\nit's probably a Sprite. Sprites have events that can be listened to, collision detection,\nand even a hierchal system of children Sprites. Sprites is where stuff goes down.\n\n\nGeneral Usage\n\n\nBefore we get down to the nitty-gritty of documenting everything about the sprite,\nlets take a look at how to use them.\n\n\nSprites can be used as-is, like so:\n\n\nmySprite = new Torch.Sprite(game, 0, 0)\n\n\n\n\ngame\n being an instance of \nTorch.Game\n. See \nGames\n\n\nOr they can by inherited from:\n\n\nclass MyCustomSprite extends Torch.Sprite\n    constructor: (game, x, y)->\n        @InitSprite(game, x, y)\n\n    Update: ->\n        super()\n        # do stuff..\n\n\n\n\nWhen inherting Sprite, make sure you call \n@InitSprite\n in the constructor\nAlso, make sure \n@InitSprite\n is always the first call in the constructor and\nthat \nsuper\n is the first call in any overridden method.\n\n\nPublic Methods\n\n\nconstructor(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns:\n\nTorch.Sprite\n\n\nInitializes the Sprite\n\n\nInitSprite(game, x, y)\n\n\ngame\n Torch.Game, the game that the sprite will be added to\n\n\nx\n Number, the initial x position of the sprite\n\n\ny\n Number, the initial y position of the sprite\n\n\nReturns: \nVOID\n\n\nInitializes the sprite. Should be called inside of any class' constructor that\ninherits from Sprite\n\n\nFixed(tog)\n\n\ntog\n Bool, false turns on fixing, true turns it off\n\n\nReturns: \nself (Torch.Sprite)\n\n\nMakes the sprite independent of camera position. Any sprite that is 'fixed' would\nnot move with the camera\n\n\nUpdateSprite()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic of the sprite. Should only be used in a javascript\nenvironment as a replacement for \nsuper\n\n\nUpdate()\n\n\nReturns: \nVOID\n\n\nRuns the core update logic and can be overridden if \nsuper\n or \n@UpdateSprite\n is\ncalled\n\n\nDraw()\n\n\nReturns: \nVOID\n\n\nRuns the core draw logic and can be overridden if \nsuper\n is called\n\n\nHide()\n\n\nReturns: \nself (Torch.Sprite)\n\n\nPrevents the sprite from being drawn\n\n\nShow()\n\n\nReturns: \nself (Torch.Sprite)\n\n\nAllows the sprite to be drawn\n\n\nClone(x,y)\n\n\nx\n Number, x position of new sprite\n\n\ny\n Number, y position of new sprite\n\n\nReturns: \nTorch.Sprite\n\n\nCopies the sprite\n\n\nNotSelf(otherSprite)\n\n\notherSprite\n Torch.Sprite, some other sprite\n\n\nReturns: \nBOOL\n\n\ndetermines if otherSprite is different from self\n\n\nVelocity(?plane, ?optionalArgument)\n\n\nplane\n String, what plane of the velocity to get/modify\n\n\nplane\n Object, sets all planes of the velocity\n\n\noptionalArgument\n Number, value to set plane to\n\n\nReturns: \nself (Torch.Sprite)\n or \nNUMBER\n or \nTorch.Point\n\n\nif plane is an object, the velocity is set to it and \nself\n is returned. If\nplane is a valid string (x or y) and optionalArgument is null, the plane velocity is\nreturned. If optionalArgument is set with plane, the velocity is set and \nself\n is\nreturned\n\n\nPosition(?plane, ?optionalArgument)\n\n\nplane\n String, what plane of the position to get/modify\n\n\nplane\n Object, sets all planes of the position\n\n\noptionalArgument\n Number, value to set plane to\n\n\nReturns: \nself (Torch.Sprite)\n or \nNUMBER\n or \nTorch.Point\n\n\nif plane is an object, the position is set to it and \nself\n is returned. If\nplane is a valid string (x or y) and optionalArgument is null, the plane position is\nreturned. If optionalArgument is set with plane, the position is set and \nself\n is\nreturned\n\n\nInternal Methods\n\n\nUpdateEvents()\n\n\nReturns: \nVOID\n\n\nRuns event logic against sprite and handles emitting of events.\n\n\nUpdateBody()\n\n\nReturns: \nVOID\n\n\nRuns simple built-in physics logic against the sprite.\n\n\nGetCurrentDraw()\n\n\nReturns: \nobject\n\n\nGets the appropriate image to be drawn on the sprite",
             "title": "Sprites"
         },
         {
@@ -76,6 +76,41 @@
             "title": "Update()"
         },
         {
+            "location": "/sprites/#draw",
+            "text": "Returns:  VOID  Runs the core draw logic and can be overridden if  super  is called",
+            "title": "Draw()"
+        },
+        {
+            "location": "/sprites/#hide",
+            "text": "Returns:  self (Torch.Sprite)  Prevents the sprite from being drawn",
+            "title": "Hide()"
+        },
+        {
+            "location": "/sprites/#show",
+            "text": "Returns:  self (Torch.Sprite)  Allows the sprite to be drawn",
+            "title": "Show()"
+        },
+        {
+            "location": "/sprites/#clonexy",
+            "text": "x  Number, x position of new sprite  y  Number, y position of new sprite  Returns:  Torch.Sprite  Copies the sprite",
+            "title": "Clone(x,y)"
+        },
+        {
+            "location": "/sprites/#notselfothersprite",
+            "text": "otherSprite  Torch.Sprite, some other sprite  Returns:  BOOL  determines if otherSprite is different from self",
+            "title": "NotSelf(otherSprite)"
+        },
+        {
+            "location": "/sprites/#velocityplane-optionalargument",
+            "text": "plane  String, what plane of the velocity to get/modify  plane  Object, sets all planes of the velocity  optionalArgument  Number, value to set plane to  Returns:  self (Torch.Sprite)  or  NUMBER  or  Torch.Point  if plane is an object, the velocity is set to it and  self  is returned. If\nplane is a valid string (x or y) and optionalArgument is null, the plane velocity is\nreturned. If optionalArgument is set with plane, the velocity is set and  self  is\nreturned",
+            "title": "Velocity(?plane, ?optionalArgument)"
+        },
+        {
+            "location": "/sprites/#positionplane-optionalargument",
+            "text": "plane  String, what plane of the position to get/modify  plane  Object, sets all planes of the position  optionalArgument  Number, value to set plane to  Returns:  self (Torch.Sprite)  or  NUMBER  or  Torch.Point  if plane is an object, the position is set to it and  self  is returned. If\nplane is a valid string (x or y) and optionalArgument is null, the plane position is\nreturned. If optionalArgument is set with plane, the position is set and  self  is\nreturned",
+            "title": "Position(?plane, ?optionalArgument)"
+        },
+        {
             "location": "/sprites/#internal-methods",
             "text": "",
             "title": "Internal Methods"
@@ -89,6 +124,11 @@
             "location": "/sprites/#updatebody",
             "text": "Returns:  VOID  Runs simple built-in physics logic against the sprite.",
             "title": "UpdateBody()"
+        },
+        {
+            "location": "/sprites/#getcurrentdraw",
+            "text": "Returns:  object  Gets the appropriate image to be drawn on the sprite",
+            "title": "GetCurrentDraw()"
         }
     ]
 }

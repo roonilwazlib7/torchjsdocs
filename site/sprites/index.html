@@ -143,13 +143,52 @@ environment as a replacement for <code>super</code></p>
 <p>Returns: <code>VOID</code></p>
 <p>Runs the core update logic and can be overridden if <code>super</code> or <code>@UpdateSprite</code> is
 called</p>
+<h3 id="draw">Draw()</h3>
+<p>Returns: <code>VOID</code></p>
+<p>Runs the core draw logic and can be overridden if <code>super</code> is called</p>
+<h3 id="hide">Hide()</h3>
+<p>Returns: <code>self (Torch.Sprite)</code></p>
+<p>Prevents the sprite from being drawn</p>
+<h3 id="show">Show()</h3>
+<p>Returns: <code>self (Torch.Sprite)</code></p>
+<p>Allows the sprite to be drawn</p>
+<h3 id="clonexy">Clone(x,y)</h3>
+<p><code>x</code> Number, x position of new sprite</p>
+<p><code>y</code> Number, y position of new sprite</p>
+<p>Returns: <code>Torch.Sprite</code></p>
+<p>Copies the sprite</p>
+<h3 id="notselfothersprite">NotSelf(otherSprite)</h3>
+<p><code>otherSprite</code> Torch.Sprite, some other sprite</p>
+<p>Returns: <code>BOOL</code></p>
+<p>determines if otherSprite is different from self</p>
+<h3 id="velocityplane-optionalargument">Velocity(?plane, ?optionalArgument)</h3>
+<p><code>plane</code> String, what plane of the velocity to get/modify</p>
+<p><code>plane</code> Object, sets all planes of the velocity</p>
+<p><code>optionalArgument</code> Number, value to set plane to</p>
+<p>Returns: <code>self (Torch.Sprite)</code> or <code>NUMBER</code> or <code>Torch.Point</code></p>
+<p>if plane is an object, the velocity is set to it and <code>self</code> is returned. If
+plane is a valid string (x or y) and optionalArgument is null, the plane velocity is
+returned. If optionalArgument is set with plane, the velocity is set and <code>self</code> is
+returned</p>
+<h3 id="positionplane-optionalargument">Position(?plane, ?optionalArgument)</h3>
+<p><code>plane</code> String, what plane of the position to get/modify</p>
+<p><code>plane</code> Object, sets all planes of the position</p>
+<p><code>optionalArgument</code> Number, value to set plane to</p>
+<p>Returns: <code>self (Torch.Sprite)</code> or <code>NUMBER</code> or <code>Torch.Point</code></p>
+<p>if plane is an object, the position is set to it and <code>self</code> is returned. If
+plane is a valid string (x or y) and optionalArgument is null, the plane position is
+returned. If optionalArgument is set with plane, the position is set and <code>self</code> is
+returned</p>
 <h2 id="internal-methods">Internal Methods</h2>
 <h3 id="updateevents">UpdateEvents()</h3>
 <p>Returns: <code>VOID</code></p>
 <p>Runs event logic against sprite and handles emitting of events.</p>
 <h3 id="updatebody">UpdateBody()</h3>
 <p>Returns: <code>VOID</code></p>
-<p>Runs simple built-in physics logic against the sprite.</p></div>
+<p>Runs simple built-in physics logic against the sprite.</p>
+<h3 id="getcurrentdraw">GetCurrentDraw()</h3>
+<p>Returns: <code>object</code></p>
+<p>Gets the appropriate image to be drawn on the sprite</p></div>
         </div>
 
         <footer class="col-md-12">

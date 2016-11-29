@@ -80,6 +80,72 @@ Returns: `VOID`
 Runs the core update logic and can be overridden if `super` or `@UpdateSprite` is
 called
 
+### Draw()
+
+Returns: `VOID`
+
+Runs the core draw logic and can be overridden if `super` is called
+
+### Hide()
+
+Returns: `self (Torch.Sprite)`
+
+Prevents the sprite from being drawn
+
+### Show()
+
+Returns: `self (Torch.Sprite)`
+
+Allows the sprite to be drawn
+
+### Clone(x,y)
+
+`x` Number, x position of new sprite
+
+`y` Number, y position of new sprite
+
+Returns: `Torch.Sprite`
+
+Copies the sprite
+
+### NotSelf(otherSprite)
+
+`otherSprite` Torch.Sprite, some other sprite
+
+Returns: `BOOL`
+
+determines if otherSprite is different from self
+
+### Velocity(?plane, ?optionalArgument)
+
+`plane` String, what plane of the velocity to get/modify
+
+`plane` Object, sets all planes of the velocity
+
+`optionalArgument` Number, value to set plane to
+
+Returns: `self (Torch.Sprite)` or `NUMBER` or `Torch.Point`
+
+if plane is an object, the velocity is set to it and `self` is returned. If
+plane is a valid string (x or y) and optionalArgument is null, the plane velocity is
+returned. If optionalArgument is set with plane, the velocity is set and `self` is
+returned
+
+### Position(?plane, ?optionalArgument)
+
+`plane` String, what plane of the position to get/modify
+
+`plane` Object, sets all planes of the position
+
+`optionalArgument` Number, value to set plane to
+
+Returns: `self (Torch.Sprite)` or `NUMBER` or `Torch.Point`
+
+if plane is an object, the position is set to it and `self` is returned. If
+plane is a valid string (x or y) and optionalArgument is null, the plane position is
+returned. If optionalArgument is set with plane, the position is set and `self` is
+returned
+
 ## Internal Methods
 
 ### UpdateEvents()
@@ -93,3 +159,9 @@ Runs event logic against sprite and handles emitting of events.
 Returns: `VOID`
 
 Runs simple built-in physics logic against the sprite.
+
+### GetCurrentDraw()
+
+Returns: `object`
+
+Gets the appropriate image to be drawn on the sprite

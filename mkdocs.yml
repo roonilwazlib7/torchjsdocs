@@ -1,6 +1,11 @@
 site_name: Torch.js - Documentation
 
 pages:
-    - index.md
-    - games.md
-    - sprites.md
+    - Home: 'index.md'
+    - Games: 'games.md'
+    - Sprites:
+        - 'Sprites': 'sprite/sprites.md'
+        - 'Shapes': 'sprite/shapes/shapes.md'
+    - Utilities:
+        - 'Utilities': 'util/utilities.md'
+        - 'String': 'util/string.md'
